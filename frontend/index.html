@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BeatBond</title>
+  <meta name="theme-color" content="#ff6b6b">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div id="auth" class="card auth-card">
+    <h2>BeatBond</h2>
+    <p style="color:#94a3b8;margin-bottom:24px">Discover music. Find your twin.</p>
+    <div class="auth-grid">
+      <div class="auth-box">
+        <h3>Login</h3>
+        <input id="loginUser" placeholder="username">
+        <input id="loginPass" placeholder="password" type="password">
+        <button id="btnLogin" class="btn primary" style="width:100%">Login</button>
+        <p style="font-size:13px;color:#94a3b8;margin-top:12px">Demo: alice / pass</p>
+      </div>
+      <div class="auth-box">
+        <h3>New User</h3>
+        <input id="regUser" placeholder="username">
+        <input id="regPass" placeholder="password" type="password">
+        <button id="btnReg" class="btn primary" style="width:100%">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboard" class="app" style="display:none">
+    <header class="topbar">
+      <div class="brand">BeatBond</div>
+      <div class="search">
+        <input id="q" placeholder="Search songs...">
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="user" id="userDisplay">Not signed in</div>
+        <button id="btnLogout" class="btn small" style="color:var(--muted);border-color:rgba(255,255,255,0.1)">Logout</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <aside class="sidebar card">
+        <h4>Controls</h4>
+        <div class="control-row">
+          <input id="plName" placeholder="playlist name">
+          <button id="createPl" class="btn small">Create</button>
+        </div>
+        <h4>Genres</h4>
+        <div id="genreList" class="genre-list"></div>
+        <h4>Music Twin</h4>
+        <div id="musicTwin" class="music-twin-container"></div>
+      </aside>
+
+      <section class="panels">
+        <div class="panel card">
+          <h3>All Songs</h3>
+          <ul id="allSongs" class="list"></ul>
+        </div>
+
+        <div class="panel card">
+          <h3>Trending</h3>
+          <ul id="trending" class="list"></ul>
+        </div>
+
+        <div class="panel card">
+          <h3>Favorites</h3>
+          <ul id="favorites" class="list"></ul>
+        </div>
+
+        <div class="panel card">
+          <h3>Recently Played</h3>
+          <ul id="recentlyPlayed" class="list"></ul>
+        </div>
+
+        <div class="panel card">
+          <h3>Popular Artists</h3>
+          <ul id="popularArtists" class="list"></ul>
+        </div>
+
+        <div class="panel card">
+          <h3>Friend Recommendations</h3>
+          <ul id="friendRecs" class="list"></ul>
+        </div>
+
+        <div class="panel card">
+          <h3>Your Stats</h3>
+          <div id="userStats" style="padding:12px"></div>
+        </div>
+
+        <div class="panel card">
+          <h3>Playlists</h3>
+          <ul id="playlists" class="list"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modalOverlay" class="modal-overlay" style="display:none" onclick="closeAddModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <h3>Add to Playlist</h3>
+      <div id="playlistOptions" class="playlist-options"></div>
+      <div class="modal-row">
+        <input id="newPlName" placeholder="New playlist name">
+        <button class="btn primary" onclick="createNewPlaylist()">Create & Add</button>
+      </div>
+      <button class="btn" onclick="closeAddModal()" style="margin-top:8px">Cancel</button>
+    </div>
+  </div>
+
+  <div id="playerBar">
+    <audio id="player" controls></audio>
+  </div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>
